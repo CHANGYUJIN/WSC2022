@@ -10,7 +10,10 @@ const Button = (props) => {
     setState({
         clicked: content,
     });
+    console.log(content);
+    props.getBtnClicked(content);
   };
+  
 
   return (
     <div className={props.type + "-sortList"}>

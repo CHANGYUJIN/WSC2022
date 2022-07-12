@@ -2,7 +2,7 @@ import actions from './actions';
 
 const initialSummonerState = {
     data: [],
-    smLoading: false,
+    chLoading: false,
     error: null,
 };
 
@@ -18,20 +18,20 @@ const summonerReducer = (state = initialSummonerState, action) => {
         case SUMMONER_BEGIN:
             return{
                 ...state,
-                smLoading: true,
+                chLoading: true,
             };
         case SUMMONER_SUCCESS:
             return{
                 ...state,
                 data,
                 error: false,
-                smLoading: false,
+                chLoading: false,
             };
         case SUMMONER_ERR:
             return {
                 ...state,
                 error: err,
-                smLoading: false,
+                chLoading: false,
             };
         default:
             return state;

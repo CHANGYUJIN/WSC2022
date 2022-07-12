@@ -22,12 +22,24 @@ const Card = (props) => {
     "상대하기 어려운 챔피언",
   ];
 
-  // Object.keys(ranks[0]).map((col) => {
-  //   if (col !== "imageURL")
-  //     columns.push(col);
-  // })
+  const [btnClicked, setBtnClicked] = useState("전체");
+  var tag = "";
+  const getBtnClicked = (btnClicked) => {
+    setBtnClicked(btnClicked);
+  };
 
-  console.log(props.keyword);
+  // const championList = [];
+  // const {
+  //   getChampionList,
+  // } = () => {
+  //   console.log(btnClicked);
+  //   if (btnClicked === "전체") championList.push(props.contents);
+  //   console.log(championList);
+  // };
+  
+  //&& tags.includes(tag)
+
+  console.log(btnClicked);
 
   switch (props.type) {
     case "position":
@@ -46,20 +58,29 @@ const Card = (props) => {
       return (
         <div className="champion-container">
           <div className="champion-sort-container">
-            <Button contents={championSort} type="champion" />
+            <Button
+              contents={championSort}
+              type="champion"
+              getBtnClicked={getBtnClicked}
+            />
           </div>
           <div className="champion-list-container">
             <div className="champion-list">
-              {champions.map((champion) => {
-                if (champion.content.includes(props.keyword))
+              {props.contents.map((champion) => {
+                const { name, image, tags } = champion;
+                if (name.includes(props.keyword))
                   return (
                     <li className="champion-item">
                       <img
                         className="champion-img"
-                        src={champion.imageURL}
-                        alt={champion.content}
+                        src={
+                          "https://opgg-static.akamaized.net/images/lol/champion/" +
+                          image.full +
+                          "?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_92&v=1657294091517"
+                        }
+                        alt={name}
                       />
-                      <span>{champion.content}</span>
+                      <span>{name}</span>
                     </li>
                   );
               })}
