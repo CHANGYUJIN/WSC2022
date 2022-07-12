@@ -1,0 +1,64 @@
+.position-sortList{
+    display: table;
+    border-collapse: collapse;
+    border-style: hidden;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #424254;
+    position: relative;
+    margin-left: 200px;
+    flex-shrink: 0;
+}
+
+.position-sort{
+    display: table-cell;
+    justify-content: center;
+    background-color: #31313C;
+    border: none;
+    border-right: 1px solid #424254;
+    color: #fff;
+    padding: 10px 40px 10px 40px;
+    cursor: pointer;
+    font-size: 14px;
+    font-style: bold;
+}
+
+.champion-sortList{
+    display: inline-block;
+    border-style: hidden;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #424254;
+    background-color: #31313C;
+}
+
+.champion-sort{
+    background-color: #31313C;
+    border: none;
+    border-right: 1px solid #424254;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-style: bold;
+    min-width: 50px;
+}
+
+.position-sort:nth-of-type(1), .champion-sort:nth-of-type(1){
+    border-radius: 5px 0 0 5px;
+}
+
+.position-sort:nth-last-of-type(1), .champion-sort:nth-last-of-type(1){
+    border-right: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.position-sort:hover, .champion-sort:hover{
+    background-color: #282830;
+}
+
+.position-sort:focus, .champion-sort:focus{
+    background-color: #5383E8;
+}
+
+.clicked{
+    background-color: #5383E8;
+}
