@@ -29,6 +29,8 @@ const MainPage = () => {
 
   const championInfo = {};
   const champion = [];
+  const summonerInfo = {};
+  const summoners = [];
 
   Object.assign(championInfo, champions.data);
   Object.entries(championInfo).map(([key, value]) => {
@@ -37,6 +39,17 @@ const MainPage = () => {
   champion.sort(function(a,b){
     return a.name < b.name ? -1 : a.name > b.name? 1 : 0;
   });
+  Object.assign(summonerInfo, summoner.data);
+  Object.entries(summonerInfo).map(([key, value]) => {
+    summoners.push(value);
+  })
+
+  console.log(summonerInfo);
+  summoners.map((sum) => {
+    const {puuid} = sum;
+    console.log(puuid);
+    console.log(sum.summonerLevel);
+  })
 
 
   const gameList = [
@@ -93,12 +106,7 @@ const MainPage = () => {
         </div>
       </div>
       <div>
-        {
-          summoner.map((sum) => {
-            const {puuid, summonerLevel} = sum;
-            return <h1>{puuid} + " " + {summonerLevel}</h1>;
-          })
-        }
+        <h1>{summoners}</h1>
       </div>
       <footer>
         <br></br>
