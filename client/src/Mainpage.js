@@ -28,9 +28,7 @@ const MainPage = () => {
 
   const championInfo = {};
   const champion = [];
-  const summonerInfo = {};
   const summoners = [];
-  const rotationInfo = {};
   const rotation = [];
 
   Object.assign(championInfo, champions.data);
@@ -41,29 +39,28 @@ const MainPage = () => {
   champion.sort(function(a,b){
     return a.name < b.name ? -1 : a.name > b.name? 1 : 0;
   });
-  console.log(summoner);
-  console.log(champions.data);
-  Object.assign(summonerInfo, summoner);
-  Object.entries(summonerInfo).map(([key, value]) => {
+  
+  Object.entries(summoner).map(([key, value]) => {
     summoners.push(value);
   })
 
-  Object.assign(rotationInfo, rotations.data);
-  Object.entries(rotationInfo).map(([key, value]) => {
-    rotation.push(value);
+  Object.entries(rotations).map(([key, value]) => {
+    if(key === "freeChampionIds"){
+      value.forEach((v) => {
+        rotation.push(v);
+      })
+    }
   });
 
-  champion.map((champ) => {
-    const {key, name} = champ;
+  champion.map((ch) => {
+    const {key, name} = ch;
     rotation.map((rt) => {
-      if (key === rt)
+      if(rt == key)
         console.log(name);
     })
   })
 
-  console.log(summonerInfo);
   
-
 
   const gameList = [
     "리그오브레전드",
