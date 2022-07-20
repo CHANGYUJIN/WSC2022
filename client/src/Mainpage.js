@@ -92,6 +92,14 @@ const MainPage = () => {
           <Card type="rank" />
         </div>
       </div>
+      <div>
+        {
+          summoner.map((sum) => {
+            const {puuid, summonerLevel} = sum;
+            return <h1>{puuid} + " " + {summonerLevel}</h1>;
+          })
+        }
+      </div>
       <footer>
         <br></br>
       </footer>
