@@ -18,6 +18,10 @@ const MainPage = () => {
     };
   });
 
+  // summoner.map((s) => {
+  //   console.log(s);
+  // });
+
   useEffect(() => {
     dispatch(getSummoner());
     dispatch(getChampions());
