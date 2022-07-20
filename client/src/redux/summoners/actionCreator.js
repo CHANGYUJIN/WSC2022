@@ -15,6 +15,7 @@ const getSummoner = () => {
                 "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/장나나냐?api_key=RGAPI-2dc883ff-691f-4506-be4f-f41f29fd9415"
             );
             console.log(summoner);
+            console.log(summoner.data);
             await dispatch(summonerSuccess(summoner.data));
         } catch (err) {
             await dispatch(summonerErr(err));

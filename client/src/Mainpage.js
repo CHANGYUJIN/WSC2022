@@ -18,10 +18,6 @@ const MainPage = () => {
     };
   });
 
-  // summoner.map((s) => {
-  //   console.log(s);
-  // });
-
   useEffect(() => {
     dispatch(getSummoner());
     dispatch(getChampions());
@@ -39,6 +35,8 @@ const MainPage = () => {
   champion.sort(function(a,b){
     return a.name < b.name ? -1 : a.name > b.name? 1 : 0;
   });
+  console.log(summoner);
+  console.log(champions.data);
   console.log(summoner.data);
   Object.assign(summonerInfo, summoner.data);
   Object.entries(summonerInfo).map(([key, value]) => {
