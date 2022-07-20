@@ -39,17 +39,15 @@ const MainPage = () => {
   champion.sort(function(a,b){
     return a.name < b.name ? -1 : a.name > b.name? 1 : 0;
   });
+  console.log(summoner.data);
   Object.assign(summonerInfo, summoner.data);
   Object.entries(summonerInfo).map(([key, value]) => {
+    console.log(value);
     summoners.push(value);
   })
 
   console.log(summonerInfo);
-  summoners.map((sum) => {
-    const {puuid} = sum;
-    console.log(puuid);
-    console.log(sum.summonerLevel);
-  })
+  
 
 
   const gameList = [
