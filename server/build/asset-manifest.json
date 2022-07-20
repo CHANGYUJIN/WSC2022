@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wp/static/css/main.f777d7b3.css",
+    "main.js": "/wp/static/js/main.3b80a3a0.js",
+    "index.html": "/wp/index.html",
+    "main.f777d7b3.css.map": "/wp/static/css/main.f777d7b3.css.map",
+    "main.3b80a3a0.js.map": "/wp/static/js/main.3b80a3a0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f777d7b3.css",
+    "static/js/main.3b80a3a0.js"
+  ]
+}

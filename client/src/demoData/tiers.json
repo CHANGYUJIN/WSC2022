@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Iron",
+    "imageURL": "https://opgg-static.akamaized.net/images/medals_mini/iron.png?image=q_auto,f_webp,w_48&v=1657294091332"
+  },
+  {
+    "content": "Bronze",
+    "imageURL": "https://opgg-static.akamaized.net/images/medals_mini/bronze.png?image=q_auto,f_webp,w_48&v=1657294091332"
+  },
+  {
+    "content": "Silver",
+    "imageURL": "https://opgg-static.akamaized.net/images/medals_mini/silver.png?image=q_auto,f_webp,w_48&v=1657294091332"
+  },
+  {
+    "content": "Gold",
+    "imageURL": "https://opgg-static.akamaized.net/images/medals_mini/gold.png?image=q_auto,f_webp,w_48&v=1657294091332"
+  },
+  {
+    "content": "Platinum",
+    "imageURL": "https://opgg-static.akamaized.net/images/medals_mini/platinum.png?image=q_auto,f_webp,w_48&v=1657294091332"
+  }
+]
