@@ -37,8 +37,7 @@ const MainPage = () => {
   });
   console.log(summoner);
   console.log(champions.data);
-  console.log(summoner.data);
-  Object.assign(summonerInfo, summoner.data);
+  Object.assign(summonerInfo, summoner);
   Object.entries(summonerInfo).map(([key, value]) => {
     console.log(value);
     summoners.push(value);
