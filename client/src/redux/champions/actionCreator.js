@@ -5,6 +5,11 @@ const {
     championBegin,
     championSuccess,
     championErr,
+
+    rotationBegin,
+    rotationSuccess,
+    rotationErr,
+
 } = actions;
 
 const getChampions = () => {
@@ -21,4 +26,18 @@ const getChampions = () => {
     };
 }
 
-export {getChampions};
+const getRotations = () => {
+    return async (dispatch) => {
+        try{
+            await dispatch(rotationBegin());
+            const rotation = await axios.get(
+                "https://kr.api.riotgames.com/lol/platform/v3/champion-rotations" + "?api_key=RGAPI-2dc883ff-691f-4506-be4f-f41f29fd9415"
+            );
+            await dispatch(rotationSuccess(rotation.data));
+        } catch (err) {
+            await dispatch(rotationErr(err));
+        }
+    };
+}
+
+export {getChampions, getRotations};

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getSummoner } from "./redux/summoners/actionCreator";
-import { getChampions } from "./redux/champions/actionCreator";
+import { getChampions, getRotations } from "./redux/champions/actionCreator";
 import { useDispatch, useSelector } from "react-redux";
 import "./static/css/mainpage.css";
 import SearchBar from "./components/SearchBar";
@@ -9,26 +9,32 @@ import NavBar from "./components/NavBar";
 
 const MainPage = () => {
   const dispatch = useDispatch();
-  const { summoner, smLoading, champions, chLoading } = useSelector((state) => {
+  const { summoner, smLoading, champions, chLoading, rotations, rtLoading } = useSelector((state) => {
     return {
       summoner: state.summoner.data,
       smLoading: state.summoner.smLoading,
       champions: state.champions.data,
       chLoading: state.champions.chLoading,
+      rotations: state.rotations.data,
+      rtLoading: state.rotations.rtLoading,
     };
   });
 
   useEffect(() => {
     dispatch(getSummoner());
     dispatch(getChampions());
+    dispatch(getRotations());
   }, [dispatch]);
 
   const championInfo = {};
   const champion = [];
   const summonerInfo = {};
   const summoners = [];
+  const rotationInfo = {};
+  const rotation = [];
 
   Object.assign(championInfo, champions.data);
+
   Object.entries(championInfo).map(([key, value]) => {
     champion.push(value);
   });
@@ -39,8 +45,20 @@ const MainPage = () => {
   console.log(champions.data);
   Object.assign(summonerInfo, summoner);
   Object.entries(summonerInfo).map(([key, value]) => {
-    console.log(value);
     summoners.push(value);
+  })
+
+  Object.assign(rotationInfo, rotations.data);
+  Object.entries(rotationInfo).map(([key, value]) => {
+    rotation.push(value);
+  });
+
+  champion.map((champ) => {
+    const {key, name} = champ;
+    rotation.map((rt) => {
+      if (key === rt)
+        console.log(name);
+    })
   })
 
   console.log(summonerInfo);
@@ -99,9 +117,6 @@ const MainPage = () => {
           />
           <Card type="rank" />
         </div>
-      </div>
-      <div>
-        <h1>{summoners}</h1>
       </div>
       <footer>
         <br></br>
